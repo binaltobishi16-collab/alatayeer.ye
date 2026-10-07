@@ -1,0 +1,1522 @@
+/* ==========================================================================
+   عالطائر (Alatayer) - Official Landing Page Design System
+   Mobile First, Ultra-Fast, Clean & Premium Tech Aesthetic
+   ========================================================================== */
+
+:root {
+  /* Brand Palette (Derived precisely from Alatayer Brand Identity) */
+  --color-navy-dark: #03122c;
+  --color-navy-deep: #061b47;
+  --color-navy-primary: #0a2768;
+  --color-navy-card: #0d2e7a;
+  
+  --color-blue-royal: #0056f5;
+  --color-blue-vivid: #0b68ff;
+  --color-blue-light: #388eff;
+  
+  --color-cyan-electric: #00d2ff;
+  --color-cyan-glow: rgba(0, 210, 255, 0.45);
+  --color-cyan-soft: #e0f7ff;
+  --color-cyan-badge: rgba(0, 210, 255, 0.12);
+
+  --color-bg-page: #f8fbff;
+  --color-bg-alt: #f0f6ff;
+  --color-card-white: #ffffff;
+  --color-card-border: #e3effd;
+  
+  --color-text-main: #061938;
+  --color-text-muted: #536b8a;
+  --color-text-light: #7e95b0;
+  --color-text-white: #ffffff;
+
+  /* Accents */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-glow: rgba(37, 211, 102, 0.35);
+  --color-instagram: #e1306c;
+  --color-facebook: #1877f2;
+
+  /* Shadows & Glows */
+  --shadow-sm: 0 2px 8px rgba(6, 27, 71, 0.05);
+  --shadow-md: 0 8px 24px rgba(6, 27, 71, 0.08);
+  --shadow-lg: 0 16px 40px rgba(6, 27, 71, 0.12);
+  --shadow-glow-cyan: 0 10px 30px rgba(0, 210, 255, 0.3);
+  --shadow-glow-blue: 0 10px 30px rgba(0, 86, 245, 0.3);
+
+  /* Borders & Radius */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Base & Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-family: 'Tajawal', 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  direction: rtl;
+  text-align: right;
+  background-color: var(--color-bg-page);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-color: var(--color-bg-page);
+}
+
+/* Background Atmosphere Gradients */
+.bg-ambient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-ambient::before {
+  content: '';
+  position: absolute;
+  top: -10vw;
+  right: -10vw;
+  width: 55vw;
+  height: 55vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.12) 0%, rgba(0, 86, 245, 0.05) 50%, transparent 70%);
+  filter: blur(50px);
+}
+
+.bg-ambient::after {
+  content: '';
+  position: absolute;
+  top: 35vh;
+  left: -15vw;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(11, 104, 255, 0.08) 0%, rgba(0, 210, 255, 0.04) 50%, transparent 70%);
+  filter: blur(60px);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Navigation Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(227, 239, 253, 0.85);
+  transition: all var(--transition-normal);
+}
+
+.site-header.scrolled {
+  box-shadow: 0 6px 20px rgba(6, 27, 71, 0.07);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--color-navy-dark);
+}
+
+.nav-logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 86, 245, 0.18);
+  transition: transform var(--transition-bounce);
+}
+
+.brand-wrapper:hover .nav-logo-img {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-navy-dark);
+  line-height: 1.2;
+}
+
+.brand-tagline-micro {
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-nav-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-navy-deep) 0%, var(--color-blue-royal) 100%);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 86, 245, 0.25);
+  transition: all var(--transition-normal);
+}
+
+.btn-nav-download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 86, 245, 0.4);
+}
+
+.btn-nav-download svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   1. Hero Section (الكلام الترحيبي والتسويقي)
+   ========================================================================== */
+.hero-section {
+  padding-top: 32px;
+  padding-bottom: 46px;
+  position: relative;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Hero Centered Logo with Aura */
+.hero-logo-container {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.hero-logo-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 170px;
+  height: 170px;
+  background: radial-gradient(circle, var(--color-cyan-glow) 0%, rgba(11, 104, 255, 0.2) 50%, transparent 75%);
+  border-radius: 50%;
+  filter: blur(24px);
+  animation: pulseAura 4s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+.hero-logo-img {
+  position: relative;
+  z-index: 2;
+  width: 135px;
+  height: 135px;
+  border-radius: 28px;
+  box-shadow: 0 16px 36px rgba(3, 18, 44, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.4);
+  object-fit: cover;
+  transition: transform var(--transition-bounce);
+}
+
+.hero-logo-img:hover {
+  transform: scale(1.04) translateY(-3px);
+}
+
+@keyframes pulseAura {
+  0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.95; }
+}
+
+/* Pill Sub-Tagline */
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 210, 255, 0.12);
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  margin-bottom: 18px;
+  transition: all var(--transition-normal);
+}
+
+.hero-pill-badge:hover {
+  border-color: var(--color-cyan-electric);
+  box-shadow: 0 6px 20px rgba(0, 210, 255, 0.22);
+  transform: translateY(-1px);
+}
+
+.hero-pill-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+  animation: wingFlutter 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes wingFlutter {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-12deg) translateY(-2px); }
+}
+
+.hero-pill-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-navy-deep);
+}
+
+/* Grand Hero Headline */
+.hero-title-group {
+  margin-bottom: 20px;
+}
+
+.hero-title-first {
+  display: block;
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--color-navy-dark);
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+}
+
+.hero-title-second {
+  display: block;
+  font-size: 2.7rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--color-blue-royal) 0%, var(--color-cyan-electric) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+  margin-top: 4px;
+}
+
+.hero-subdesc {
+  max-width: 530px;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 26px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Primary Hero CTA */
+.hero-cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 34px;
+}
+
+.btn-hero-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 28px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, #0252e0 0%, #0077ff 50%, #00d2ff 100%);
+  background-size: 200% auto;
+  color: #ffffff;
+  font-size: 1.18rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(0, 86, 245, 0.38), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-hero-cta:hover {
+  background-position: right center;
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 14px 34px rgba(0, 119, 255, 0.48);
+}
+
+.btn-hero-cta .cta-arrow {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  transition: transform var(--transition-normal);
+}
+
+.btn-hero-cta:hover .cta-arrow {
+  transform: translateY(3px);
+}
+
+.hero-cta-hint {
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Hero Visual / Device Showcase
+   ========================================================================== */
+.hero-showcase {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Floating micro-badges around phone */
+.floating-chip {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-full);
+  box-shadow: 0 10px 25px rgba(6, 27, 71, 0.12), 0 0 0 1px rgba(227, 239, 253, 0.9);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-navy-dark);
+  animation: floatMotion 4s ease-in-out infinite alternate;
+  white-space: nowrap;
+}
+
+.floating-chip-1 {
+  top: 12%;
+  right: -10px;
+  animation-delay: 0s;
+}
+
+.floating-chip-2 {
+  bottom: 22%;
+  left: -15px;
+  animation-delay: 1.5s;
+}
+
+@keyframes floatMotion {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
+
+.chip-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-cyan-soft);
+  color: var(--color-blue-royal);
+  font-size: 0.9rem;
+}
+
+/* CSS Phone Frame */
+.phone-mockup {
+  position: relative;
+  width: 270px;
+  height: 520px;
+  background: #041433;
+  border-radius: 46px;
+  padding: 10px;
+  box-shadow: 0 25px 60px rgba(6, 27, 71, 0.28), 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 0 8px #081d45;
+  transition: transform var(--transition-normal);
+}
+
+.phone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 38px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 86px;
+  height: 18px;
+  background: #041433;
+  border-radius: 12px;
+  z-index: 20;
+}
+
+/* Simulated App UI */
+.phone-app-header {
+  background: linear-gradient(135deg, #031c4f 0%, #0056f5 100%);
+  color: #fff;
+  padding: 34px 14px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-user-location {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-user-location .loc-label {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.app-user-location .loc-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.app-mini-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.phone-app-banner {
+  margin: 10px 12px;
+  background: linear-gradient(135deg, #00d2ff 0%, #0056f5 100%);
+  border-radius: 14px;
+  padding: 12px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.phone-app-banner .banner-tag {
+  font-size: 0.62rem;
+  font-weight: 800;
+  background: rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.phone-app-banner .banner-text {
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.phone-app-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 6px 12px;
+}
+
+.mini-category-card {
+  background: #f4f8fd;
+  border: 1px solid #e1ecfa;
+  border-radius: 12px;
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mini-category-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.mini-category-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-category-info .cat-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-navy-dark);
+}
+
+.mini-category-info .cat-desc {
+  font-size: 0.58rem;
+  color: var(--color-text-muted);
+}
+
+.phone-app-status {
+  margin: 10px 12px auto;
+  background: #ffffff;
+  border: 1px solid #e1edfa;
+  border-radius: 14px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 12px rgba(0, 86, 245, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-courier {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.courier-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+}
+
+.status-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-text .status-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--color-navy-dark);
+}
+
+.status-text .status-sub {
+  font-size: 0.58rem;
+  color: var(--color-text-muted);
+}
+
+.phone-app-bottom-bar {
+  margin-top: auto;
+  border-top: 1px solid #eaf0fa;
+  padding: 10px 14px 16px;
+  display: flex;
+  justify-content: space-around;
+  background: #ffffff;
+}
+
+.bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.58rem;
+  color: var(--color-text-light);
+  font-weight: 700;
+}
+
+.bar-item.active {
+  color: var(--color-blue-royal);
+}
+
+.bar-item svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   2. تحميل التطبيق وأيقونات التحميل (Download Section)
+   ========================================================================== */
+.section-download {
+  padding: 55px 0;
+  background: #ffffff;
+  position: relative;
+  border-top: 1px solid rgba(227, 239, 253, 0.95);
+  border-bottom: 1px solid rgba(227, 239, 253, 0.95);
+}
+
+.section-head {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 32px;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--color-cyan-badge);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  border-radius: var(--radius-full);
+  color: var(--color-navy-deep);
+  font-size: 0.84rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: var(--color-navy-dark);
+  line-height: 1.3;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+  font-size: 1.02rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Device Smart Notice */
+.smart-device-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.12) 0%, rgba(0, 86, 245, 0.08) 100%);
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  border-radius: var(--radius-md);
+  padding: 11px 18px;
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-navy-primary);
+}
+
+.smart-device-banner .device-icon {
+  font-size: 1.2rem;
+}
+
+/* Store Download Buttons Grid */
+.download-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* Store Button Style */
+.store-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  background: #ffffff;
+  border: 2px solid #e1edfa;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--color-navy-dark);
+  box-shadow: 0 6px 20px rgba(6, 27, 71, 0.06);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.store-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-blue-royal);
+  box-shadow: 0 12px 28px rgba(0, 86, 245, 0.16);
+}
+
+.store-btn-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.store-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: #f4f8fe;
+  flex-shrink: 0;
+  transition: transform var(--transition-bounce);
+}
+
+.store-btn:hover .store-icon-wrapper {
+  transform: scale(1.08);
+}
+
+.store-icon-wrapper svg {
+  width: 32px;
+  height: 32px;
+}
+
+.store-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.store-btn-sub {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.store-btn-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-navy-dark);
+  line-height: 1.3;
+}
+
+.store-btn-platform {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.store-btn-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f0f6ff;
+  color: var(--color-blue-royal);
+  transition: all var(--transition-normal);
+}
+
+.store-btn:hover .store-btn-arrow {
+  background: var(--color-blue-royal);
+  color: #fff;
+  transform: translateX(-4px);
+}
+
+.store-btn-arrow svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Highlighted Button Style */
+.store-btn.is-recommended {
+  border-color: var(--color-blue-royal);
+  background: linear-gradient(135deg, #ffffff 0%, #f3f8ff 100%);
+  box-shadow: 0 10px 30px rgba(0, 86, 245, 0.18);
+}
+
+.store-btn.is-recommended::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-cyan-electric), var(--color-blue-royal));
+}
+
+.store-recommended-tag {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  background: linear-gradient(135deg, var(--color-blue-royal) 0%, var(--color-cyan-electric) 100%);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 8px rgba(0, 86, 245, 0.3);
+}
+
+/* Desktop QR Code Card */
+.desktop-qr-card {
+  display: none;
+  margin-top: 32px;
+  background: linear-gradient(135deg, #f7faff 0%, #eef5fe 100%);
+  border: 1px dashed rgba(0, 86, 245, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+}
+
+.desktop-qr-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.qr-code-box {
+  width: 120px;
+  height: 120px;
+  background: #ffffff;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 16px rgba(6, 27, 71, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-code-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.qr-text-side {
+  text-align: right;
+  max-width: 320px;
+}
+
+.qr-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-navy-dark);
+  margin-bottom: 6px;
+}
+
+.qr-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   3. تابع حساباتنا في السوشيال ميديا (Social Media Section)
+   ========================================================================== */
+.section-social {
+  padding: 55px 0;
+  background: var(--color-bg-page);
+  position: relative;
+}
+
+.social-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 22px 14px;
+  border-radius: var(--radius-lg);
+  background: #ffffff;
+  border: 1px solid var(--color-card-border);
+  text-decoration: none;
+  color: var(--color-navy-dark);
+  transition: all var(--transition-normal);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.social-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.social-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  transition: transform var(--transition-bounce);
+}
+
+.social-card:hover .social-icon-wrapper {
+  transform: scale(1.12);
+}
+
+.social-card-ig .social-icon-wrapper {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #fff;
+}
+
+.social-card-fb .social-icon-wrapper {
+  background: #1877f2;
+  color: #fff;
+}
+
+.social-card-wa .social-icon-wrapper {
+  background: var(--color-whatsapp);
+  color: #fff;
+}
+
+.social-card-tt .social-icon-wrapper {
+  background: #000000;
+  color: #fff;
+}
+
+.social-icon-wrapper svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.social-card-name {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.social-card-handle {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  direction: ltr;
+}
+
+.social-status-tag {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.tag-follow {
+  background: rgba(0, 86, 245, 0.08);
+  color: var(--color-blue-royal);
+}
+
+.tag-soon {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   4. تواصل مع خدمة العملاء (Customer Support Section)
+   ========================================================================== */
+.section-support {
+  padding: 30px 0 55px;
+}
+
+.support-master-card {
+  position: relative;
+  background: linear-gradient(145deg, #061e4f 0%, #082869 50%, #0c368c 100%);
+  border-radius: var(--radius-xl);
+  padding: 38px 24px;
+  color: #ffffff;
+  box-shadow: 0 20px 45px rgba(6, 27, 71, 0.22);
+  overflow: hidden;
+  text-align: center;
+}
+
+.support-master-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-cyan-glow) 0%, transparent 70%);
+  filter: blur(30px);
+}
+
+.support-badge-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--color-cyan-electric);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+}
+
+.support-card-title {
+  font-size: 1.85rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.support-card-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 22px;
+}
+
+/* Phone Number Display Highlight */
+.support-number-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  direction: ltr;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  margin-bottom: 26px;
+  transition: all var(--transition-normal);
+}
+
+.support-number-box:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: var(--color-cyan-electric);
+}
+
+.support-number-text {
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.support-number-box .num-tag {
+  background: var(--color-cyan-electric);
+  color: var(--color-navy-dark);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  direction: rtl;
+}
+
+/* Action Buttons inside Support Card */
+.support-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.btn-support-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: var(--radius-full);
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.btn-support-whatsapp {
+  background: var(--color-whatsapp);
+  color: #ffffff;
+  box-shadow: 0 8px 20px var(--color-whatsapp-glow);
+}
+
+.btn-support-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(37, 211, 102, 0.5);
+  background: #20bd5a;
+}
+
+.btn-support-call {
+  background: #ffffff;
+  color: var(--color-navy-dark);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-support-call:hover {
+  transform: translateY(-2px);
+  background: #f3f7fd;
+}
+
+.btn-support-action svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   5. الخدمات (Services Section)
+   ========================================================================== */
+.section-services {
+  padding: 55px 0 65px;
+  background: #ffffff;
+  border-top: 1px solid var(--color-card-border);
+  position: relative;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.service-card {
+  position: relative;
+  background: var(--color-bg-page);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  overflow: hidden;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-blue-royal), var(--color-cyan-electric));
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: #cbdcf4;
+  background: #ffffff;
+}
+
+.service-card:hover::after {
+  opacity: 1;
+}
+
+.service-icon-box {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.9rem;
+  flex-shrink: 0;
+  box-shadow: 0 6px 16px rgba(0, 86, 245, 0.08);
+  transition: transform var(--transition-bounce);
+}
+
+.service-card:hover .service-icon-box {
+  transform: scale(1.1) rotate(4deg);
+}
+
+/* Service icon tints */
+.service-icon-food {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+}
+
+.service-icon-market {
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+}
+
+.service-icon-pharma {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+
+.service-icon-courier {
+  background: linear-gradient(135deg, #ede7f6 0%, #d1c4e9 100%);
+}
+
+.service-content {
+  flex: 1;
+}
+
+.service-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-navy-dark);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.service-card-quote {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-blue-royal);
+  margin-bottom: 4px;
+}
+
+.service-card-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Wave Separator & Footer Section
+   ========================================================================== */
+.footer-wave-wrapper {
+  line-height: 0;
+  background: #ffffff;
+}
+
+.footer-wave-svg {
+  width: 100%;
+  height: 50px;
+  display: block;
+}
+
+.site-footer {
+  background: var(--color-navy-dark);
+  color: #ffffff;
+  padding: 40px 0 30px;
+  position: relative;
+  text-align: center;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  margin-bottom: 14px;
+}
+
+.footer-brand-title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.footer-tagline {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 8px;
+}
+
+.footer-signature {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-cyan-electric);
+  margin-bottom: 24px;
+}
+
+.footer-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 28px;
+  list-style: none;
+}
+
+.footer-nav-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.footer-nav-links a:hover {
+  color: var(--color-cyan-electric);
+}
+
+.footer-divider {
+  width: 100%;
+  max-width: 500px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin-bottom: 20px;
+}
+
+.footer-copyright {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Sticky Floating Contact Pill (Mobile Quick Action)
+   ========================================================================== */
+.floating-quick-bar {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.floating-wa-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-whatsapp);
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  transition: all var(--transition-bounce);
+}
+
+.floating-wa-btn:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6);
+}
+
+.floating-wa-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   Responsive Adaptations (Tablet & Desktop Enhancements)
+   ========================================================================== */
+@media (min-width: 640px) {
+  .hero-title-first {
+    font-size: 3rem;
+  }
+  .hero-title-second {
+    font-size: 3.5rem;
+  }
+  .download-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .support-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .hero-section {
+    padding-top: 60px;
+    padding-bottom: 75px;
+  }
+  
+  .hero-grid-desktop {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 40px;
+    align-items: center;
+    text-align: right;
+  }
+
+  .hero-content {
+    align-items: flex-start;
+    text-align: right;
+  }
+
+  .hero-logo-container {
+    margin-bottom: 20px;
+  }
+
+  .hero-subdesc {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero-cta-wrapper {
+    align-items: flex-start;
+  }
+
+  .hero-showcase {
+    max-width: 440px;
+    margin-top: 0;
+  }
+
+  .phone-mockup {
+    width: 290px;
+    height: 560px;
+  }
+
+  .floating-chip-1 {
+    right: -25px;
+    top: 15%;
+  }
+
+  .floating-chip-2 {
+    left: -35px;
+    bottom: 20%;
+  }
+
+  .desktop-qr-card {
+    display: block;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .social-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
